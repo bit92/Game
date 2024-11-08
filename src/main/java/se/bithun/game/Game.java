@@ -98,32 +98,44 @@ public class Game {
         System.out.println("You encounter the burglar! A fight begins.");
         foundBurglar = true;  // Set foundBurglar to true, as the encounter has begun
 
+        Scanner scanner = new Scanner(System.in);
+
+        // Loop continues until either the resident or burglar is defeated
         while (resident.isAlive() && burglar.isAlive()) {
-            // Resident attacks Burglar
-            System.out.println("You hit the burglar.");
-            burglar.takeDamage(resident.getDamage());
-            System.out.println("Burglar's health: " + burglar.getHealth());
+            System.out.println("Type '1' to attack the burglar.");
 
-            // Check if the burglar is defeated
-            if (!burglar.isAlive()) {
-                defeatedburglar = true;
-                System.out.println("You defeated the burglar. Now inform the police.");
-                break;
-            }
+            String input = scanner.nextLine();
 
-            // Burglar attacks Resident
-            System.out.println("The burglar hits you.");
-            resident.takeDamage(burglar.getDamage());
-            System.out.println("Your health: " + resident.getHealth());
+            if (input.equals("1")) {
+                // Resident attacks Burglar
+                System.out.println("You hit the burglar.");
+                burglar.takeDamage(resident.getDamage());
+                System.out.println("Burglar's health: " + burglar.getHealth());
 
-            // Check if the resident is defeated
-            if (!resident.isAlive()) {
-                System.out.println("You have been defeated by the burglar. Game over.");
-                running = false;
-                break;
+                // Check if the burglar is defeated
+                if (!burglar.isAlive()) {
+                    defeatedburglar = true;
+                    System.out.println("You defeated the burglar. Now inform the police.");
+                    break;
+                }
+
+                // Burglar attacks Resident
+                System.out.println("The burglar hits you.");
+                resident.takeDamage(burglar.getDamage());
+                System.out.println("Your health: " + resident.getHealth());
+
+                // Check if the resident is defeated
+                if (!resident.isAlive()) {
+                    System.out.println("You have been defeated by the burglar. Game over.");
+                    running = false;
+                    break;
+                }
+            } else {
+                System.out.println("Invalid input. Please type '1' to attack.");
             }
         }
     }
+
 
     private void visitOffice() {
         System.out.println("You enter the office room.");
