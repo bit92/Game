@@ -5,9 +5,8 @@ public abstract class Entity {
         private int health;
         private int damage;
 
-        public Entity(){}
         public Entity(String name, int health, int damage) {
-            this.name = name;
+            this.name = name; //constructor
             this.health = health;
             this.damage = damage;
         }

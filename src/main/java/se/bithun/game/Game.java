@@ -34,7 +34,7 @@ public class Game {
 
                 switch (input.toLowerCase()) {
                     case "kitchen":
-                        visitKitchen();
+                        visitKitchen();//takes the player to the kitchen
                         inLivingRoom = false;
                         break;
                     case "bedroom":
@@ -67,9 +67,9 @@ public class Game {
                 }
             }
 
-            if (foundBurglar && informedPolice) {
-                System.out.println("Congratulations! You defeated the burglar and called the police. You win!");
-                running = false;
+           if (foundBurglar && informedPolice) {
+              System.out.println("Congratulations! You defeated the burglar and called the police. You win!");
+               running = false;
             }
         }
         scanner.close();
@@ -79,7 +79,7 @@ public class Game {
         System.out.println("You enter the kitchen.");
         if (!resident.hasWeapon()) {
             resident.findWeapon();
-            System.out.println("You found a frying pan to use as a weapon.");
+            System.out.println("You found a frying pan to use as a weapon.");//when the player enter a kitchen
         } else {
             System.out.println("You've already taken the frying pan.");
         }
@@ -129,7 +129,7 @@ public class Game {
         System.out.println("You enter the office room.");
 
         if (defeatedburglar && !informedPolice) {
-            System.out.println("You call the police to report the incident.");
+            System.out.println("You call the police to report the incident.");//After defeating the burgler player can go to office and inform
             informedPolice = true;
         } else if (informedPolice) {
             System.out.println("You have already informed the police.");
@@ -137,4 +137,5 @@ public class Game {
             System.out.println("It’s quiet here, and there is nothing of interest.");
         }
     }
+
 }

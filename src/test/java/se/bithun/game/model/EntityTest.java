@@ -21,6 +21,6 @@ class ResidentTest {
     void testTakeDamageDecreaseHealth(){
         Resident resident = new Resident();
         resident.takeDamage(10);
-        assertEquals(90, resident.getHealth(), "The health Value shoukd decrease");
+        assertEquals(90, resident.getHealth(), "The health Value should decrease");
     }
 }
